@@ -1,0 +1,264 @@
+[
+  {
+    "id": "uses_ai",
+    "title": "Does your company use, or plan to use, any AI system in business processes?",
+    "help": "Include chatbots, scoring, recommendations, generative automation, computer vision or systems bought from vendors.",
+    "type": "single",
+    "options": [
+      {
+        "value": "yes",
+        "label": "Yes",
+        "effects": []
+      },
+      {
+        "value": "no",
+        "label": "No, or exploration only with no deployment",
+        "effects": [{ "type": "classification", "value": "minimal" }, { "type": "obligation", "value": "minimal-governance" }]
+      }
+    ]
+  },
+  {
+    "id": "prohibited_practice",
+    "title": "Could the system fit a prohibited AI Act practice?",
+    "help": "Examples: harmful subliminal manipulation, exploitation of vulnerabilities, social scoring, unauthorised remote biometric identification or emotion recognition in employment/education unless an exception applies.",
+    "type": "single",
+    "when": { "question": "uses_ai", "equals": "yes" },
+    "options": [
+      {
+        "value": "yes",
+        "label": "Yes or we are unsure",
+        "effects": [{ "type": "classification", "value": "prohibited" }, { "type": "obligation", "value": "prohibited-stop" }]
+      },
+      {
+        "value": "no",
+        "label": "No",
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": "employment_selection",
+    "title": "Do you use AI for recruitment, CV screening, interviews or candidate ranking?",
+    "help": "Include screening tools, role matching, automated assessment or interview prioritisation.",
+    "type": "single",
+    "when": { "question": "uses_ai", "equals": "yes" },
+    "options": [
+      {
+        "value": "yes",
+        "label": "Yes",
+        "effects": [{ "type": "classification", "value": "high-risk" }, { "type": "annex", "value": "Annex III: employment and worker management" }]
+      },
+      { "value": "no", "label": "No", "effects": [] }
+    ]
+  },
+  {
+    "id": "worker_management",
+    "title": "Does AI support worker management, performance, shifts, promotion or dismissal decisions?",
+    "help": "Assignment, evaluation or monitoring systems at work usually require high-risk analysis.",
+    "type": "single",
+    "when": { "question": "uses_ai", "equals": "yes" },
+    "options": [
+      {
+        "value": "yes",
+        "label": "Yes",
+        "effects": [{ "type": "classification", "value": "high-risk" }, { "type": "annex", "value": "Annex III: worker management" }]
+      },
+      { "value": "no", "label": "No", "effects": [] }
+    ]
+  },
+  {
+    "id": "credit_insurance",
+    "title": "Does AI decide or influence credit, solvency, insurance pricing or financial eligibility?",
+    "help": "Include scoring, approval/rejection, pricing, fraud or case prioritisation with meaningful impact on people.",
+    "type": "single",
+    "when": { "question": "uses_ai", "equals": "yes" },
+    "options": [
+      {
+        "value": "yes",
+        "label": "Yes",
+        "effects": [{ "type": "classification", "value": "high-risk" }, { "type": "annex", "value": "Annex III: access to essential private services" }]
+      },
+      { "value": "no", "label": "No", "effects": [] }
+    ]
+  },
+  {
+    "id": "education_access",
+    "title": "Is it used for admission, assessment, guidance or educational/professional certification?",
+    "help": "Covers access to training, learning assessment, plagiarism detection with consequences and relevant career guidance.",
+    "type": "single",
+    "when": { "question": "uses_ai", "equals": "yes" },
+    "options": [
+      {
+        "value": "yes",
+        "label": "Yes",
+        "effects": [{ "type": "classification", "value": "high-risk" }, { "type": "annex", "value": "Annex III: education and vocational training" }]
+      },
+      { "value": "no", "label": "No", "effects": [] }
+    ]
+  },
+  {
+    "id": "essential_services",
+    "title": "Does it affect access to essential public or private services?",
+    "help": "For example benefits, healthcare, housing, emergency services, essential banking services or eligibility that matters to an individual.",
+    "type": "single",
+    "when": { "question": "uses_ai", "equals": "yes" },
+    "options": [
+      {
+        "value": "yes",
+        "label": "Yes",
+        "effects": [{ "type": "classification", "value": "high-risk" }, { "type": "annex", "value": "Annex III: essential services" }]
+      },
+      { "value": "no", "label": "No", "effects": [] }
+    ]
+  },
+  {
+    "id": "critical_infrastructure",
+    "title": "Does it control or prioritise operations in critical infrastructure?",
+    "help": "Think energy, transport, water, health, telecoms, safety or continuity of critical services.",
+    "type": "single",
+    "when": { "question": "uses_ai", "equals": "yes" },
+    "options": [
+      {
+        "value": "yes",
+        "label": "Yes",
+        "effects": [{ "type": "classification", "value": "high-risk" }, { "type": "annex", "value": "Annex III: critical infrastructure" }]
+      },
+      { "value": "no", "label": "No", "effects": [] }
+    ]
+  },
+  {
+    "id": "regulated_product",
+    "title": "Is AI a safety component of a regulated product or subject to conformity assessment?",
+    "help": "Examples: machinery, medical devices, toys, lifts, radio equipment, automotive, aviation or products under Annex I.",
+    "type": "single",
+    "when": { "question": "uses_ai", "equals": "yes" },
+    "options": [
+      {
+        "value": "yes",
+        "label": "Yes",
+        "effects": [{ "type": "classification", "value": "high-risk" }, { "type": "annex", "value": "Art. 6.1 and Annex I: regulated product" }]
+      },
+      { "value": "no", "label": "No", "effects": [] }
+    ]
+  },
+  {
+    "id": "biometric_sensitive",
+    "title": "Does it use biometrics, biometric categorisation or emotion recognition?",
+    "help": "If the case appears in employment, education or remote identification, it needs a specific review and may be prohibited or high-risk.",
+    "type": "single",
+    "when": { "question": "uses_ai", "equals": "yes" },
+    "options": [
+      {
+        "value": "yes",
+        "label": "Yes",
+        "effects": [{ "type": "classification", "value": "high-risk" }, { "type": "annex", "value": "Annex III: biometrics" }]
+      },
+      { "value": "no", "label": "No", "effects": [] }
+    ]
+  },
+  {
+    "id": "public_authority_sensitive",
+    "title": "Is it used in justice, migration, asylum, border control or public authority support?",
+    "help": "Even if your company is a private provider, selling into or deploying in these contexts often activates high-risk analysis.",
+    "type": "single",
+    "when": { "question": "uses_ai", "equals": "yes" },
+    "options": [
+      {
+        "value": "yes",
+        "label": "Yes",
+        "effects": [{ "type": "classification", "value": "high-risk" }, { "type": "annex", "value": "Annex III: public authority, justice or migration" }]
+      },
+      { "value": "no", "label": "No", "effects": [] }
+    ]
+  },
+  {
+    "id": "chatbot",
+    "title": "Is it a chatbot or assistant that interacts directly with people?",
+    "help": "Include customer support, internal support, web agents or assistants that simulate human conversation.",
+    "type": "single",
+    "when": { "question": "uses_ai", "equals": "yes" },
+    "options": [
+      {
+        "value": "yes",
+        "label": "Yes",
+        "effects": [{ "type": "classification", "value": "limited" }, { "type": "obligation", "value": "limited-transparency" }]
+      },
+      { "value": "no", "label": "No", "effects": [] }
+    ]
+  },
+  {
+    "id": "synthetic_content",
+    "title": "Does it generate or modify synthetic content, audio, images, video or deepfakes?",
+    "help": "Applies to generated or manipulated content that a person could interpret as real.",
+    "type": "single",
+    "when": { "question": "uses_ai", "equals": "yes" },
+    "options": [
+      {
+        "value": "yes",
+        "label": "Yes",
+        "effects": [{ "type": "classification", "value": "limited" }, { "type": "obligation", "value": "limited-transparency" }]
+      },
+      { "value": "no", "label": "No", "effects": [] }
+    ]
+  },
+  {
+    "id": "gpai_foundation",
+    "title": "Do you train, fine-tune or commercialise your own foundation/GPAI models for critical sectors?",
+    "help": "If you only consume a third-party API, you are usually a deployer; if you develop the model, review GPAI obligations.",
+    "type": "single",
+    "when": { "question": "uses_ai", "equals": "yes" },
+    "options": [
+      {
+        "value": "yes",
+        "label": "Yes",
+        "effects": [{ "type": "flag", "value": "gpai" }, { "type": "obligation", "value": "gpai-review" }]
+      },
+      { "value": "no", "label": "No", "effects": [] }
+    ]
+  },
+  {
+    "id": "third_party_deployment",
+    "title": "Do you deploy a system developed by a third party?",
+    "help": "For example AI SaaS, model APIs, copilots, HR tech, external scoring or modules integrated into your ERP/CRM.",
+    "type": "single",
+    "when": { "question": "uses_ai", "equals": "yes" },
+    "options": [
+      {
+        "value": "yes",
+        "label": "Yes",
+        "effects": [{ "type": "role", "value": "deployer" }, { "type": "obligation", "value": "deployer-obligations" }]
+      },
+      { "value": "no", "label": "No", "effects": [] }
+    ]
+  },
+  {
+    "id": "provider_or_modifier",
+    "title": "Do you develop, sell or substantially modify the system before using it?",
+    "help": "Changing purpose, logic, data or behaviour can effectively turn you into a provider.",
+    "type": "single",
+    "when": { "question": "uses_ai", "equals": "yes" },
+    "options": [
+      {
+        "value": "yes",
+        "label": "Yes",
+        "effects": [{ "type": "role", "value": "provider" }, { "type": "obligation", "value": "provider-obligations" }]
+      },
+      { "value": "no", "label": "No", "effects": [] }
+    ]
+  },
+  {
+    "id": "personal_sensitive_data",
+    "title": "Does it process personal data, special categories or children's data?",
+    "help": "This does not change the AI Act classification by itself, but increases diligence around data, security and evidence.",
+    "type": "single",
+    "when": { "question": "uses_ai", "equals": "yes" },
+    "options": [
+      {
+        "value": "yes",
+        "label": "Yes",
+        "effects": [{ "type": "flag", "value": "data-protection-review" }]
+      },
+      { "value": "no", "label": "No", "effects": [] }
+    ]
+  }
+]

@@ -1,0 +1,15 @@
+---
+import Layout from "../../components/Layout.astro";
+import QuestionnaireApp from "../../components/QuestionnaireApp";
+
+const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+---
+
+<Layout
+  locale="es"
+  canonicalPath="/questionnaire/"
+  title="Cuestionario AI Act | Jose Robles"
+  description="Cuestionario adaptativo para clasificar sistemas IA y obtener obligaciones orientativas del AI Act."
+>
+  <QuestionnaireApp client:load locale="es" resultPath={`${base}results/`} />
+</Layout>

@@ -1,0 +1,93 @@
+[
+  {
+    "id": "prohibited-stop",
+    "title": "Detener o rediseñar el caso de uso",
+    "article": "Art. 5",
+    "appliesTo": ["prohibited"],
+    "summary": "Si el sistema encaja en una práctica prohibida, no debe ponerse en servicio ni utilizarse en la UE salvo que exista una excepción legal muy específica."
+  },
+  {
+    "id": "high-risk-risk-management",
+    "title": "Sistema de gestión de riesgos",
+    "article": "Art. 9",
+    "appliesTo": ["high-risk"],
+    "summary": "Implantar un proceso continuo para identificar, analizar, estimar y mitigar riesgos razonablemente previsibles durante todo el ciclo de vida del sistema."
+  },
+  {
+    "id": "high-risk-data-governance",
+    "title": "Gobernanza y calidad de datos",
+    "article": "Art. 10",
+    "appliesTo": ["high-risk"],
+    "summary": "Documentar prácticas de datos, criterios de calidad, posibles sesgos, adecuación de conjuntos de entrenamiento, validación y pruebas cuando aplique."
+  },
+  {
+    "id": "high-risk-technical-docs",
+    "title": "Documentación técnica",
+    "article": "Art. 11 y Anexo IV",
+    "appliesTo": ["high-risk", "provider"],
+    "summary": "Mantener documentación técnica suficiente para demostrar la conformidad, incluyendo propósito previsto, diseño, datos, métricas, evaluación y medidas de control."
+  },
+  {
+    "id": "high-risk-logs",
+    "title": "Registro automático de eventos",
+    "article": "Art. 12",
+    "appliesTo": ["high-risk"],
+    "summary": "Diseñar o exigir capacidades de logging que permitan trazabilidad apropiada para supervisar funcionamiento, incidentes y uso posterior."
+  },
+  {
+    "id": "high-risk-transparency",
+    "title": "Transparencia e instrucciones de uso",
+    "article": "Art. 13",
+    "appliesTo": ["high-risk"],
+    "summary": "Proporcionar información clara sobre capacidades, limitaciones, rendimiento esperado, uso previsto y medidas de supervisión humana."
+  },
+  {
+    "id": "high-risk-human-oversight",
+    "title": "Supervisión humana",
+    "article": "Art. 14",
+    "appliesTo": ["high-risk"],
+    "summary": "Definir controles para que personas competentes puedan interpretar salidas, intervenir, ignorar o detener el sistema cuando sea necesario."
+  },
+  {
+    "id": "annex-iii-scope",
+    "title": "Confirmar encaje en Anexo III",
+    "article": "Art. 6.2 y Anexo III",
+    "appliesTo": ["high-risk"],
+    "summary": "Verificar la categoría concreta del Anexo III: empleo, crédito, educación, servicios esenciales, infraestructuras críticas, biometría u otros ámbitos regulados."
+  },
+  {
+    "id": "limited-transparency",
+    "title": "Aviso de interacción con IA",
+    "article": "Art. 50",
+    "appliesTo": ["limited"],
+    "summary": "Informar a las personas cuando interactúan con un sistema IA, chatbot, contenido sintético o deepfake, salvo excepciones aplicables."
+  },
+  {
+    "id": "gpai-review",
+    "title": "Revisión de obligaciones GPAI",
+    "article": "Art. 51",
+    "appliesTo": ["gpai"],
+    "summary": "Si usas o desarrollas modelos de propósito general, revisar si existe riesgo sistémico y obligaciones específicas para proveedores GPAI."
+  },
+  {
+    "id": "deployer-obligations",
+    "title": "Obligaciones como responsable del despliegue",
+    "article": "Art. 26",
+    "appliesTo": ["deployer"],
+    "summary": "Usar el sistema conforme a instrucciones, asegurar supervisión humana, conservar logs cuando proceda, monitorizar funcionamiento y realizar evaluaciones exigibles."
+  },
+  {
+    "id": "provider-obligations",
+    "title": "Obligaciones como proveedor o modificador sustancial",
+    "article": "Art. 16 y Anexo IV",
+    "appliesTo": ["provider"],
+    "summary": "Si desarrollas el sistema o lo modificas sustancialmente, preparar conformidad, documentación técnica, instrucciones, gestión de calidad y registro cuando aplique."
+  },
+  {
+    "id": "minimal-governance",
+    "title": "Buenas prácticas para riesgo mínimo",
+    "article": "Considerandos y enfoque basado en riesgo",
+    "appliesTo": ["minimal"],
+    "summary": "Aunque no haya obligaciones específicas de alto riesgo, conviene mantener inventario, responsable interno, revisión de proveedores y política de uso aceptable."
+  }
+]

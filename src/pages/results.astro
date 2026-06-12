@@ -1,0 +1,16 @@
+---
+import Layout from "../components/Layout.astro";
+import ResultsApp from "../components/ResultsApp";
+
+const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const calendlyUrl = "https://calendly.com/josediegorobles";
+---
+
+<Layout
+  locale="es"
+  canonicalPath="/results/"
+  title="Resultado diagnóstico AI Act | Jose Robles"
+  description="Resultado orientativo de clasificación AI Act y obligaciones aplicables con PDF descargable."
+>
+  <ResultsApp client:load locale="es" questionnairePath={`${base}questionnaire/`} calendlyUrl={calendlyUrl} />
+</Layout>

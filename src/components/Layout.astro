@@ -1,0 +1,70 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  locale: "es" | "en";
+  canonicalPath: string;
+}
+
+const { title, description, locale, canonicalPath } = Astro.props;
+const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const normalizedBase = base.endsWith("/") ? base.slice(0, -1) : base;
+const canonical = new URL(`${normalizedBase}${canonicalPath}`, Astro.site).toString();
+const homePath = locale === "es" ? `${base}` : `${base}en/`;
+const questionnairePath = locale === "es" ? `${base}questionnaire/` : `${base}en/questionnaire/`;
+const resultPath = locale === "es" ? `${base}results/` : `${base}en/results/`;
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="es" href={new URL(`${normalizedBase}/`, Astro.site).toString()} />
+    <link rel="alternate" hreflang="en" href={new URL(`${normalizedBase}/en/`, Astro.site).toString()} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+  </head>
+  <body>
+    <header class="border-b border-line bg-white/92">
+      <nav class="jr-container flex min-h-16 flex-wrap items-center justify-between gap-3 py-3">
+        <a href={homePath} class="flex items-center gap-3 font-bold text-ink" aria-label="Jose Robles AI Act">
+          <span class="grid h-9 w-9 place-items-center rounded-md bg-signal text-sm font-black text-white">JR</span>
+          <span>Jose Robles · AI Act</span>
+        </a>
+        <div class="flex items-center gap-2 text-sm font-semibold">
+          <a class="rounded-md px-3 py-2 text-slate-700 hover:bg-teal-50 hover:text-signal" href={questionnairePath}>
+            {locale === "es" ? "Cuestionario" : "Questionnaire"}
+          </a>
+          <a class="rounded-md px-3 py-2 text-slate-700 hover:bg-teal-50 hover:text-signal" href={resultPath}>
+            {locale === "es" ? "Resultado" : "Result"}
+          </a>
+          <a class="rounded-md border border-line px-3 py-2 text-slate-700 hover:border-signal hover:text-signal" href={locale === "es" ? `${base}en/` : `${base}`}>
+            {locale === "es" ? "EN" : "ES"}
+          </a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="mt-10 border-t border-line bg-white">
+      <div class="jr-container grid gap-4 py-7 text-sm leading-6 text-slate-600 md:grid-cols-[1fr_auto]">
+        <p>
+          {locale === "es"
+            ? "Esta herramienta provee una clasificación orientativa basada en el Reglamento (UE) 2024/1689 (AI Act). No constituye asesoramiento legal. Verifica con abogado especializado antes de tomar decisiones de cumplimiento."
+            : "This tool provides an orientative classification based on Regulation (EU) 2024/1689 (AI Act). It does not constitute legal advice. Verify with a specialised lawyer before making compliance decisions."}
+        </p>
+        <a class="font-semibold text-signal hover:text-ink" href="mailto:jose@josediegorobles.com">jose@josediegorobles.com</a>
+      </div>
+    </footer>
+  </body>
+</html>

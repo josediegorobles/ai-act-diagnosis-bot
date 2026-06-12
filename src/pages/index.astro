@@ -1,0 +1,56 @@
+---
+import Layout from "../components/Layout.astro";
+
+const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+---
+
+<Layout
+  locale="es"
+  canonicalPath="/"
+  title="Diagnostica tu cumplimiento AI Act en 5 minutos | Jose Robles"
+  description="Cuestionario orientativo para clasificar sistemas IA bajo el Reglamento (UE) 2024/1689 y descargar un PDF con obligaciones aplicables."
+>
+  <section class="relative min-h-[calc(100vh-132px)] overflow-hidden border-b border-line bg-ink">
+    <img
+      src={`${base}ai-act-dashboard.png`}
+      alt="Mesa de trabajo con dashboard de cumplimiento AI Act"
+      class="absolute inset-0 h-full w-full object-cover"
+      loading="eager"
+      decoding="async"
+    />
+    <div class="absolute inset-0 bg-ink/62"></div>
+    <div class="jr-container relative flex min-h-[calc(100vh-132px)] items-center py-12 md:py-16">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-200">Lead magnet AI Act para PYMEs</p>
+        <h1 class="mt-4 text-4xl font-black leading-tight text-white md:text-6xl">Diagnostica tu cumplimiento AI Act en 5 minutos</h1>
+        <p class="mt-5 max-w-2xl text-lg leading-8 text-slate-100">
+          Responde un cuestionario adaptativo sobre los sistemas IA de tu empresa y obtén una clasificación orientativa: prohibido, alto riesgo, riesgo limitado o mínimo.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href={`${base}questionnaire/`} class="inline-flex min-h-12 items-center rounded-md bg-signal px-5 text-sm font-bold text-white transition hover:bg-white hover:text-ink">
+            Empezar diagnóstico
+          </a>
+          <a href={`${base}results/`} class="inline-flex min-h-12 items-center rounded-md border border-white/70 bg-white/12 px-5 text-sm font-bold text-white transition hover:bg-white hover:text-ink">
+            Ver resultado guardado
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="bg-paper py-8">
+    <div class="jr-container grid gap-3 md:grid-cols-3">
+      <div class="rounded-md border border-line bg-white p-4">
+        <p class="text-sm font-bold text-ink">Clasificación AI Act</p>
+        <p class="mt-2 text-sm leading-6 text-slate-600">Árbol de decisión local basado en Reglamento (UE) 2024/1689, Anexo III y Art. 50.</p>
+      </div>
+      <div class="rounded-md border border-line bg-white p-4">
+        <p class="text-sm font-bold text-ink">PDF descargable</p>
+        <p class="mt-2 text-sm leading-6 text-slate-600">Resumen con obligaciones: Art. 9, 10, 11, 12, 13, 14, 50 y Anexo IV cuando aplique.</p>
+      </div>
+      <div class="rounded-md border border-line bg-white p-4">
+        <p class="text-sm font-bold text-ink">Privacidad por diseño</p>
+        <p class="mt-2 text-sm leading-6 text-slate-600">Sin backend y sin datos personales. El estado se guarda únicamente en este navegador.</p>
+      </div>
+    </div>
+  </section>
+</Layout>

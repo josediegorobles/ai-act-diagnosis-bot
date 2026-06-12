@@ -1,0 +1,93 @@
+[
+  {
+    "id": "prohibited-stop",
+    "title": "Stop or redesign the use case",
+    "article": "Art. 5",
+    "appliesTo": ["prohibited"],
+    "summary": "If the system fits a prohibited practice, it should not be placed on the EU market or used unless a very specific legal exception applies."
+  },
+  {
+    "id": "high-risk-risk-management",
+    "title": "Risk management system",
+    "article": "Art. 9",
+    "appliesTo": ["high-risk"],
+    "summary": "Implement a continuous process to identify, analyse, estimate and mitigate reasonably foreseeable risks throughout the system lifecycle."
+  },
+  {
+    "id": "high-risk-data-governance",
+    "title": "Data governance and quality",
+    "article": "Art. 10",
+    "appliesTo": ["high-risk"],
+    "summary": "Document data practices, quality criteria, bias considerations and the suitability of training, validation and testing datasets where applicable."
+  },
+  {
+    "id": "high-risk-technical-docs",
+    "title": "Technical documentation",
+    "article": "Art. 11 and Annex IV",
+    "appliesTo": ["high-risk", "provider"],
+    "summary": "Maintain technical documentation sufficient to demonstrate conformity, including intended purpose, design, data, metrics, evaluation and controls."
+  },
+  {
+    "id": "high-risk-logs",
+    "title": "Automatic event logging",
+    "article": "Art. 12",
+    "appliesTo": ["high-risk"],
+    "summary": "Design or require logging capabilities that provide appropriate traceability for monitoring operation, incidents and downstream use."
+  },
+  {
+    "id": "high-risk-transparency",
+    "title": "Transparency and instructions for use",
+    "article": "Art. 13",
+    "appliesTo": ["high-risk"],
+    "summary": "Provide clear information on capabilities, limitations, expected performance, intended use and human oversight measures."
+  },
+  {
+    "id": "high-risk-human-oversight",
+    "title": "Human oversight",
+    "article": "Art. 14",
+    "appliesTo": ["high-risk"],
+    "summary": "Define controls so competent people can interpret outputs, intervene, disregard or stop the system when required."
+  },
+  {
+    "id": "annex-iii-scope",
+    "title": "Confirm Annex III scope",
+    "article": "Art. 6.2 and Annex III",
+    "appliesTo": ["high-risk"],
+    "summary": "Verify the specific Annex III category: employment, credit, education, essential services, critical infrastructure, biometrics or other regulated areas."
+  },
+  {
+    "id": "limited-transparency",
+    "title": "AI interaction notice",
+    "article": "Art. 50",
+    "appliesTo": ["limited"],
+    "summary": "Inform people when they interact with an AI system, chatbot, synthetic content or deepfake, subject to applicable exceptions."
+  },
+  {
+    "id": "gpai-review",
+    "title": "GPAI obligations review",
+    "article": "Art. 51",
+    "appliesTo": ["gpai"],
+    "summary": "If you use or develop general-purpose AI models, review whether systemic risk exists and whether GPAI provider obligations apply."
+  },
+  {
+    "id": "deployer-obligations",
+    "title": "Deployer obligations",
+    "article": "Art. 26",
+    "appliesTo": ["deployer"],
+    "summary": "Use the system according to instructions, ensure human oversight, keep logs where relevant, monitor operation and perform required assessments."
+  },
+  {
+    "id": "provider-obligations",
+    "title": "Provider or substantial modification obligations",
+    "article": "Art. 16 and Annex IV",
+    "appliesTo": ["provider"],
+    "summary": "If you develop or substantially modify the system, prepare conformity, technical documentation, instructions, quality management and registration where applicable."
+  },
+  {
+    "id": "minimal-governance",
+    "title": "Good practice for minimal risk",
+    "article": "Risk-based approach",
+    "appliesTo": ["minimal"],
+    "summary": "Even without specific high-risk obligations, keep an AI inventory, internal owner, supplier review and acceptable-use policy."
+  }
+]
