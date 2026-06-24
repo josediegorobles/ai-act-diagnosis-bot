@@ -37,15 +37,18 @@ sameOrderedIds("Obligation", obligationsEs, obligationsEn);
 
 const questionIds = new Set(ids(questionsEs));
 const obligationIds = new Set(ids(obligationsEs));
+const questionsEnById = new Map(questionsEn.map((question) => [question.id, question]));
 
-for (const [index, question] of questionsEs.entries()) {
-  const english = questionsEn[index];
-  if (!english || english.id !== question.id) {
-    continue;
-  }
+for (const question of questionsEs) {
+  const english = questionsEnById.get(question.id);
 
   if (question.type !== "single") {
     fail(`${question.id} uses unsupported question type ${question.type}`);
+  }
+
+  if (!Array.isArray(question.options)) {
+    fail(`${question.id} options must be an array`);
+    continue;
   }
 
   if (question.when) {
@@ -61,13 +64,23 @@ for (const [index, question] of questionsEs.entries()) {
     }
   }
 
-  const optionValues = question.options.map((option) => option.value);
-  const englishOptionValues = english.options.map((option) => option.value);
-  if (optionValues.join("\n") !== englishOptionValues.join("\n")) {
-    fail(`${question.id} option values differ between ES and EN`);
+  if (!english) {
+    fail(`${question.id} is missing from EN questions`);
+  } else if (!Array.isArray(english.options)) {
+    fail(`${question.id} EN options must be an array`);
+  } else {
+    const optionValues = question.options.map((option) => option.value);
+    const englishOptionValues = english.options.map((option) => option.value);
+    if (optionValues.join("\n") !== englishOptionValues.join("\n")) {
+      fail(`${question.id} option values differ between ES and EN`);
+    }
   }
 
   for (const option of question.options) {
+    if (option.effects !== undefined && !Array.isArray(option.effects)) {
+      fail(`${question.id}/${option.value} effects must be an array`);
+      continue;
+    }
     for (const effect of option.effects ?? []) {
       if (!effectTypes.has(effect.type)) {
         fail(`${question.id}/${option.value} has unknown effect type ${effect.type}`);
@@ -83,6 +96,10 @@ for (const [index, question] of questionsEs.entries()) {
 }
 
 for (const obligation of obligationsEs) {
+  if (!Array.isArray(obligation.appliesTo)) {
+    fail(`${obligation.id} appliesTo must be an array`);
+    continue;
+  }
   for (const tag of obligation.appliesTo) {
     if (!classifications.has(tag) && !["provider", "deployer", "gpai"].includes(tag)) {
       fail(`${obligation.id} has unexpected appliesTo tag ${tag}`);
